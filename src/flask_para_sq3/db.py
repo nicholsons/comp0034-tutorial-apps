@@ -43,7 +43,7 @@ def close_db(e=None):
 def init_db():
     db = get_db()
 
-    with importlib.resources.path('tutor.data', 'paralympics.sql') as sql_path:
+    with importlib.resources.path('data', 'paralympics.sql') as sql_path:
         with current_app.open_resource(str(sql_path)) as f:
             db.executescript(f.read().decode('utf8'))
 
