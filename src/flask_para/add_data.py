@@ -195,7 +195,7 @@ def add_all_data():
     """Adds all the data.
     """
     # Specifies the path to the data file
-    data_path = resources.files("tutor.data").joinpath("paralympics.xlsx")
+    data_path = resources.files("data").joinpath("paralympics.xlsx")
 
     # Read data and create pandas dataframes
     events_df = pd.read_excel(data_path, sheet_name='events')

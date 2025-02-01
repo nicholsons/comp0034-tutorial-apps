@@ -15,7 +15,7 @@ def get_database_connection():
     Returns:
     conn: sqlite3.Connection object
     """
-    path_db = resources.files("tutor.data").joinpath("paralympics.db")
+    path_db = resources.files("data").joinpath("paralympics.db")
     conn = sqlite3.connect(str(path_db))
     with conn:
         conn.execute("PRAGMA foreign_keys = ON")
@@ -46,7 +46,7 @@ def create_line_chart(feature):
 
     # Read the data from .csv into a DataFrame
     cols = ["type", "year", "host", feature]
-    csv_path = resources.files("tutor.data").joinpath("paralympics.csv")
+    csv_path = resources.files("data").joinpath("paralympics.csv")
     line_chart_data = pd.read_csv(str(csv_path), usecols=cols)
 
     # Create a Plotly Express line chart with the following parameters
@@ -77,7 +77,7 @@ def create_bar_chart(event_type):
     fig: Plotly Express bar chart
     """
     cols = ['type', 'year', 'host', 'participants_m', 'participants_f', 'participants']
-    csv_path = resources.files("tutor.data").joinpath("paralympics.csv")
+    csv_path = resources.files("data").joinpath("paralympics.csv")
     df_events = pd.read_csv(str(csv_path), usecols=cols)
     # Drop Rome as there is no male/female data
     # Drop rows where male/female data is missing

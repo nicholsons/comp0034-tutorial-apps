@@ -10,7 +10,6 @@ def create_app(test_config=None):
     app.config.from_mapping(
         SECRET_KEY='dev',
         DATABASE=os.path.join(app.instance_path, 'paralympics.sqlite'),
-
     )
 
     if test_config is None:
@@ -32,7 +31,7 @@ def create_app(test_config=None):
     db.init_app(app)
 
     # Register the blueprint
-    from flask_para_sq3.paralympics_8 import main
+    from flask_para_sq3.paralympics import main
     app.register_blueprint(main)
 
     # return the app

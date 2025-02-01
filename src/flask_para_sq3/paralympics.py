@@ -140,7 +140,7 @@ def make_prediction(year, team):
     input_data = pd.DataFrame({'Year': [year], 'Team': [team]})
 
     # Get a prediction from the model
-    with importlib.resources.open_binary('tutor.data', 'model.pkl') as file:
+    with importlib.resources.open_binary('data', 'model.pkl') as file:
         model = joblib.load(file)
     try:
         prediction = model.predict(input_data)

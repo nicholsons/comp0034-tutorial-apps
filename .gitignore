@@ -647,5 +647,4 @@ dmypy.json
 cython_debug/
 
 # Tutorial working files
-activities/future-weeks/
-activities/md_to_pdf/
+src/no_github/

@@ -18,7 +18,7 @@ def app():
         app A Flask app with a test config
     """
     # Location for the temporary testing database
-    db_path = importlib.resources.files('tutor.data') / 'paralympics_testdb.sqlite'
+    db_path = importlib.resources.files('data') / 'paralympics_testdb.sqlite'
     db_path_str = str(db_path)
     test_cfg = {
         "TESTING": True,

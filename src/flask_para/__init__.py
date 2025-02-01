@@ -23,7 +23,7 @@ def create_app(test_config=None):
         SECRET_KEY='dev',
         # Set the location of the database file called paralympics.db which will be in the app's instance folder
         SQLALCHEMY_DATABASE_URI="sqlite:///" + os.path.join(app.instance_path, 'paralympics.db'),
-        SQLALCHEMY_ECHO=True
+        SQLALCHEMY_ECHO=False
     )
 
     if test_config is None:
@@ -60,7 +60,7 @@ def create_app(test_config=None):
             add_all_data()
 
         # Register the blueprint
-        from flask_para.paralympics_8 import main
+        from flask_para.paralympics import main
         app.register_blueprint(main)
 
     # return the app

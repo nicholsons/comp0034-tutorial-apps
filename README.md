@@ -12,8 +12,8 @@ The sub-packages are:
 Run commands:
 
 - `python3 src/choropleth/dash_choropleth.py`
-- `python3 src/dash_single/dash_choropleth.py`
-- `python3 src/dash_multi/dash_choropleth.py`
+- `python3 src/dash_single/para_dash.py`
+- `python3 src/dash_multi/app_multi.py`
 - `flask --app flask_para run --debug`
 
 For the SQLite3 version you need

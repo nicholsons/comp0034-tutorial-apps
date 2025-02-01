@@ -1,6 +1,6 @@
 """Copied from https://flask.palletsprojects.com/en/stable/tutorial/database/#define-and-access-the-database
 To create the database you need to run the following command in a Terminal:
-flask --app tutor.flask_para_sqlite init-db
+flask --app flask_para_sq3 init-db
 """
 import importlib.resources
 import sqlite3
