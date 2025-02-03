@@ -159,10 +159,10 @@ def create_card(host_year):
 
         # Variables for the card contents
         logo = f'logos/{year}_{host}.jpg'
-        participants = f'{ev['participants'].item()} athletes'
-        events = f'{ev['events'].item()} events'
-        countries = f'{ev['countries'].item()} participating teams'
-        sports = f'{ev['sports'].item()} sports'
+        participants = f"{ev['participants'].item()} athletes"
+        events = f"{ev['events'].item()} events"
+        countries = f"{ev['countries'].item()} participating teams"
+        sports = f"{ev['sports'].item()} sports"
 
         card = dbc.Card([
             dbc.CardImg(src=dash.get_asset_url(logo), style={'max-width': '60px'}, top=True),

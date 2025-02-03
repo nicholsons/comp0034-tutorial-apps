@@ -46,7 +46,9 @@ def create_db(cursor, connection):
                     events INTEGER,
                     sports INTEGER,
                     highlights TEXT,
-                    url TEXT
+                    url TEXT,
+                    latitude TEXT,
+                    longitude TEXT
                 )'''
 
     disability_event_sql = '''CREATE TABLE disability_event (
