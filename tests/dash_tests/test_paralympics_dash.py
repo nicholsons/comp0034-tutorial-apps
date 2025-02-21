@@ -4,6 +4,8 @@ import logging
 from dash.testing.application_runners import import_app
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 
 # Change this to the name and location your Dash app.
 # '.para_single' is the name of the app module without the .py extension.
@@ -79,7 +81,10 @@ def test_bar_chart_updates(dash_duo):
     winter_checkbox.click()
 
     # Wait for the bar charts to update
-    dash_duo.driver.implicitly_wait(5)
+    #dash_duo.driver.implicitly_wait(5)
+    # Wait for the bar chart elements to be present and updated
+    dash_duo.wait_for_element_by_id("bar-chart-winter", timeout=3)
+    dash_duo.wait_for_element_by_id("bar-chart-summer", timeout=3)
 
     # Find div with the id 'bar-div' that contains the charts
     bar_div = dash_duo.find_element("#bar-div")
@@ -92,9 +97,9 @@ def test_bar_chart_updates(dash_duo):
     summer_chart = len(bar_div.find_elements_by_id("bar-chart-summer"))
 
     # There should be 2 charts
-    assert num_charts == 2
     assert winter_chart == 1
     assert summer_chart == 1
+    assert num_charts == 2
 
 
 def test_map_marker_hover_updates_card(dash_duo):
@@ -188,7 +193,11 @@ def test_line_chart_changes(dash_duo):
     dash_duo.driver.find_element(by=By.XPATH, value=sport_opt_xpath).click()
 
     # Delay to wait 2 seconds for the page to reload the line chart
-    dash_duo.driver.implicitly_wait(2)
+    # dash_duo.driver.implicitly_wait(2)
+    # Wait for the #line-chart element to be present and updated
+    element = WebDriverWait(dash_duo.driver, 10).until(
+        EC.presence_of_element_located((By.CSS_SELECTOR, '#line-chart .gtitle'))
+    )
 
     # Find the title displayed in the plotly express chart
     chart_title_end = dash_duo.find_element("#line-chart .gtitle").text
