@@ -40,4 +40,4 @@ jobs:
         pytest -v tests/dash_tests/test_paralympics_dash_playwright.py
     - name: Test with pytest and selenium
       run: |
-        pytest -v tests/dash_tests/test_paralympics_dash.py
+        pytest -v --cov=dash_single tests/dash_tests/test_paralympics_dash.py
