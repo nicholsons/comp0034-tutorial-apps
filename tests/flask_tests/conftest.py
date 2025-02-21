@@ -2,9 +2,8 @@ import importlib.resources
 import os
 
 import pytest
-from sqlalchemy.orm import Session
-
 from flask_para import create_app, db
+from sqlalchemy.orm import Session
 
 
 @pytest.fixture(scope='session')
@@ -35,7 +34,6 @@ def app():
         db.session.remove()
         db.engine.dispose()
     os.unlink(db_path_str)
-
 
 
 @pytest.fixture()

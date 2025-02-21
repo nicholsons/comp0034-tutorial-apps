@@ -4,6 +4,8 @@ Install the playwright and pytest-playwright packages with pip:
 pip install pytest-playwright playwright
 
 """
+import logging
+
 import pytest
 from dash.testing.application_runners import import_app
 from playwright.sync_api import expect, sync_playwright
@@ -17,6 +19,7 @@ def start_app(dash_duo):
     """
     app_file_loc = "dash_single.para_dash"
     app = import_app(app_file_loc)
+    logging.getLogger('werkzeug').setLevel(logging.ERROR)
     yield dash_duo.start_server(app)
 
 
