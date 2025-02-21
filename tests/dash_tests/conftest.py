@@ -3,8 +3,8 @@ import os
 from selenium.webdriver.chrome.options import Options
 
 
-def pytest_setup_options():
-    """pytest extra command line arguments for running chrome driver
+def webdriver_options():
+    """command line arguments for running chrome driver
 
      For GitHub Actions, or similar container, run Chrome headless. There is no display to show the browser.
      To run locally on your computer and see the browser, maximise it and do not use headless.
