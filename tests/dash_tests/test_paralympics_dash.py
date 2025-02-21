@@ -10,6 +10,7 @@ from selenium.webdriver.common.by import By
 # 'dash_single' is the package structure that the app file is in.
 app_file = "dash_single.para_dash"
 logging.getLogger('werkzeug').setLevel(logging.ERROR)
+logging.getLogger('dash.dash').setLevel(logging.ERROR)
 
 
 def test_server_live(dash_duo):
