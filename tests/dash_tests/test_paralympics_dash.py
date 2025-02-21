@@ -201,7 +201,7 @@ def test_line_chart_changes(dash_duo):
 @pytest.fixture(scope="function")
 def start_app(dash_duo):
     """ Pytest fixture to start the app in a threaded server."""
-    app_file_loc = "dash_single.para_single"
+    app_file_loc = "dash_single.para_dash"
     app = import_app(app_file_loc)
     yield dash_duo.start_server(app)
 
