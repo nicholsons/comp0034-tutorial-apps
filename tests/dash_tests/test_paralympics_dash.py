@@ -80,9 +80,7 @@ def test_bar_chart_updates(dash_duo):
     # Click the checkbox
     winter_checkbox.click()
 
-    # Wait for the bar charts to update
-    #dash_duo.driver.implicitly_wait(5)
-    # Wait for the bar chart elements to be present and updated
+    # Wait for the bar chart elements to be present
     dash_duo.wait_for_element_by_id("bar-chart-winter", timeout=3)
     dash_duo.wait_for_element_by_id("bar-chart-summer", timeout=3)
 
@@ -192,12 +190,11 @@ def test_line_chart_changes(dash_duo):
     sport_opt_xpath = "//select[@id='dropdown-category']/option[text()='Sports']"
     dash_duo.driver.find_element(by=By.XPATH, value=sport_opt_xpath).click()
 
-    # Delay to wait 2 seconds for the page to reload the line chart
-    # dash_duo.driver.implicitly_wait(2)
-    # Wait for the #line-chart element to be present and updated
-    element = WebDriverWait(dash_duo.driver, 10).until(
-        EC.presence_of_element_located((By.CSS_SELECTOR, '#line-chart .gtitle'))
-    )
+    # Wait for the #line-chart element to be present
+    dash_duo.wait_for_element_by_id("line-chart", timeout=2)
+    # element = WebDriverWait(dash_duo.driver, 4).until(
+    #     EC.presence_of_element_located((By.CSS_SELECTOR, '#line-chart .gtitle'))
+    # )
 
     # Find the title displayed in the plotly express chart
     chart_title_end = dash_duo.find_element("#line-chart .gtitle").text
