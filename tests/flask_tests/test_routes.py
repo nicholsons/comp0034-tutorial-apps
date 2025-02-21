@@ -126,6 +126,7 @@ def test_new_quiz_form_post_success(client, db_session):
     assert quiz is not None
 '''
 
+
 def test_prediction_returns_int():
     """
     GIVEN a function to make_prediction

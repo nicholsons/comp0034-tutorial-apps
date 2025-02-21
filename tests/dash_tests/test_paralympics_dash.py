@@ -1,18 +1,19 @@
+import logging
+
 import pytest
 import requests
-import logging
 from dash.testing.application_runners import import_app
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.support.wait import WebDriverWait
 
 # Change this to the name and location your Dash app.
 # '.para_single' is the name of the app module without the .py extension.
 # 'dash_single' is the package structure that the app file is in.
 app_file = "dash_single.para_dash"
 logging.getLogger('werkzeug').setLevel(logging.ERROR)
-logging.getLogger('dash.dash').setLevel(logging.ERROR)
+logging.getLogger('dash').setLevel(logging.ERROR)
 
 
 def test_server_live(dash_duo):
@@ -190,11 +191,12 @@ def test_line_chart_changes(dash_duo):
     sport_opt_xpath = "//select[@id='dropdown-category']/option[text()='Sports']"
     dash_duo.driver.find_element(by=By.XPATH, value=sport_opt_xpath).click()
 
-    # Wait for the #line-chart element to be present
-    dash_duo.wait_for_element_by_id("line-chart", timeout=2)
-    # element = WebDriverWait(dash_duo.driver, 4).until(
-    #     EC.presence_of_element_located((By.CSS_SELECTOR, '#line-chart .gtitle'))
-    # )
+    # Wait for the #line-chart element to be present and updated
+    # dash_duo.wait_for_element_by_id("line-chart", timeout=2)
+
+    WebDriverWait(dash_duo.driver, 3).until(
+        EC.text_to_be_present_in_element((By.CSS_SELECTOR, '#line-chart .gtitle'), 'sports')
+    )
 
     # Find the title displayed in the plotly express chart
     chart_title_end = dash_duo.find_element("#line-chart .gtitle").text
