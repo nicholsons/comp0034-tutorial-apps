@@ -1,5 +1,6 @@
 import dash_bootstrap_components as dbc
 from dash import Dash, Input, Output, dcc, html
+import logging
 
 from dash_single.figures import create_bar_chart, create_card, create_line_chart, create_scatter_geo
 
@@ -105,4 +106,5 @@ def display_card(hover_data):
 
 
 if __name__ == '__main__':
+    logging.getLogger('werkzeug').setLevel(logging.ERROR)
     app.run(debug=True)
