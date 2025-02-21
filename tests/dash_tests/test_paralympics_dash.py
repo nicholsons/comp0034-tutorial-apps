@@ -1,5 +1,6 @@
 import pytest
 import requests
+import logging
 from dash.testing.application_runners import import_app
 from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
@@ -8,6 +9,7 @@ from selenium.webdriver.common.by import By
 # '.para_single' is the name of the app module without the .py extension.
 # 'dash_single' is the package structure that the app file is in.
 app_file = "dash_single.para_dash"
+logging.getLogger('werkzeug').setLevel(logging.ERROR)
 
 
 def test_server_live(dash_duo):
