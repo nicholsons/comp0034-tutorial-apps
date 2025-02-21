@@ -107,4 +107,5 @@ def display_card(hover_data):
 
 if __name__ == '__main__':
     logging.getLogger('werkzeug').setLevel(logging.ERROR)
+    logging.getLogger('dash').setLevel(logging.ERROR)
     app.run(debug=True)
