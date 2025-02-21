@@ -15,7 +15,7 @@ def start_app(dash_duo):
     This is a function-scoped fixture.
     Automatically used by all tests in this module.
     """
-    app_file_loc = "dash_single.para_single"
+    app_file_loc = "dash_single.para_dash"
     app = import_app(app_file_loc)
     yield dash_duo.start_server(app)
 

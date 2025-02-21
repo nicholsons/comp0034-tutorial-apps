@@ -7,7 +7,7 @@ from selenium.webdriver.common.by import By
 # Change this to the name and location your Dash app.
 # '.para_single' is the name of the app module without the .py extension.
 # 'dash_single' is the package structure that the app file is in.
-app_file = "dash_single.para_single"
+app_file = "dash_single.para_dash"
 
 
 def test_server_live(dash_duo):
