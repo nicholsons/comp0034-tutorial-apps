@@ -13,6 +13,15 @@ from flask_para.models import Event, Host, HostEvent, Quiz
 main = Blueprint('main', __name__)
 
 
+@main.route('/flash')
+def flash_message():
+    """Renders a page with a flash message."""
+    # Generate a Flash message
+    flash('This is a flash message!')
+    # Redirect to the homepage, the flash message should be displayed
+    return redirect(url_for('main.index'))
+
+
 @main.route('/')
 def index():
     """Renders the home page that is now a list of all paralympics with hyperlinks to the event page for each."""
